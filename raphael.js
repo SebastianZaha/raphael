@@ -489,7 +489,7 @@
             return obj;
         }
         var res = new obj.constructor;
-        for (var key in obj) if (obj[has](key)) {
+        for (var key in obj) if (obj[has](key) && (key !== 'prototype')) {
             res[key] = clone(obj[key]);
         }
         return res;
