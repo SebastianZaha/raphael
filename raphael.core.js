@@ -3803,9 +3803,12 @@
     \*/
     elproto.getTotalLength = function () {
         if (this.type != "path") {return;}
-        if (this.node.getTotalLength) {
-            return this.node.getTotalLength();
-        }
+        // Native getTotalLength crashes at least on webkit in some cases. Don't use it.
+        // https://github.com/DmitryBaranovskiy/raphael/issues/507
+        //
+        // if (this.node.getTotalLength) {
+        //    return this.node.getTotalLength();
+        // }
         return getTotalLength(this.attrs.path);
     };
     /*\
