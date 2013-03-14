@@ -4020,6 +4020,7 @@ window.Raphael.svg && function (R) {
         "": [0],
         "none": [0],
         "-": [3, 1],
+        ",": [1.1, 1.1],
         ".": [1, 1],
         "-.": [3, 1, 1, 1],
         "-..": [3, 1, 1, 1, 1, 1],
@@ -4833,6 +4834,7 @@ window.Raphael.svg && function (R) {
     }
 }(window.Raphael);
 
+
 // ┌─────────────────────────────────────────────────────────────────────┐ \\
 // │ Raphaël - JavaScript Vector Library                                 │ \\
 // ├─────────────────────────────────────────────────────────────────────┤ \\
@@ -5141,6 +5143,7 @@ window.Raphael.vml && function (R) {
             params["stroke-linecap"] && (stroke.endcap = params["stroke-linecap"] == "butt" ? "flat" : params["stroke-linecap"] == "square" ? "square" : "round");
             if (params["stroke-dasharray"]) {
                 var dasharray = {
+                    ",": "minidot",
                     "-": "shortdash",
                     ".": "shortdot",
                     "-.": "shortdashdot",

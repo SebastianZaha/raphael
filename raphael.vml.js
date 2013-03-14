@@ -306,6 +306,7 @@ window.Raphael.vml && function (R) {
             params["stroke-linecap"] && (stroke.endcap = params["stroke-linecap"] == "butt" ? "flat" : params["stroke-linecap"] == "square" ? "square" : "round");
             if (params["stroke-dasharray"]) {
                 var dasharray = {
+                    ",": "minidot",
                     "-": "shortdash",
                     ".": "shortdot",
                     "-.": "shortdashdot",
