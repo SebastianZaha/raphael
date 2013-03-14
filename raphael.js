@@ -1,12 +1,3 @@
-// ┌────────────────────────────────────────────────────────────────────┐ \\
-// │ Raphaël 2.1.0 - JavaScript Vector Library                          │ \\
-// ├────────────────────────────────────────────────────────────────────┤ \\
-// │ Copyright © 2008-2012 Dmitry Baranovskiy (http://raphaeljs.com)    │ \\
-// │ Copyright © 2008-2012 Sencha Labs (http://sencha.com)              │ \\
-// ├────────────────────────────────────────────────────────────────────┤ \\
-// │ Licensed under the MIT (http://raphaeljs.com/license.html) license.│ \\
-// └────────────────────────────────────────────────────────────────────┘ \\
-
 // ┌──────────────────────────────────────────────────────────────────────────────────────┐ \\
 // │ Eve 0.3.4 - JavaScript Events Library                                                │ \\
 // ├──────────────────────────────────────────────────────────────────────────────────────┤ \\
@@ -152,8 +143,7 @@
         return current_event;
     };
     
-    
-    eve.off = eve.unbind = function (name, f) {
+    eve.unbind = function (name, f) {
         var names = name.split(separator),
             e,
             key,
@@ -2744,9 +2734,12 @@
     
     elproto.getTotalLength = function () {
         if (this.type != "path") {return;}
-        if (this.node.getTotalLength) {
-            return this.node.getTotalLength();
-        }
+        // Native getTotalLength crashes at least on webkit in some cases. Don't use it.
+        // https://github.com/DmitryBaranovskiy/raphael/issues/507
+        //
+        // if (this.node.getTotalLength) {
+        //    return this.node.getTotalLength();
+        // }
         return getTotalLength(this.attrs.path);
     };
     
